@@ -363,18 +363,18 @@ Base URL: http://localhost:8080/api/v1/books/{bookId}/comments
 
 ## 7.2 `Book` 엔티티
 
-| 필드 | 타입 | 설명 |
-|---|---|---|
-| `id` | Long | 도서 고유 ID (자동 생성) |
-| `title` | String | 도서 제목 |
-| `author` | String | 작가 이름 |
-| `category` | String | 도서 카테고리 |
-| `content` | String | 도서 내용 (MEDIUMTEXT) |
-| `coverImageUrl` | String | 표지 이미지 URL (base64, MEDIUMTEXT) |
-| `likes` | Long | 좋아요 수 |
-| `views` | Long | 조회수 |
-| `createdAt` | DateTime | 생성 일시 |
-| `updatedAt` | DateTime | 수정 일시 |
+| 필드명 | 타입 | 제약 조건 | 설명 |
+|---|---|---|---|
+| `id` | BIGINT | PK, AUTO_INCREMENT | 도서 고유 ID |
+| `title` | VARCHAR(200) | NOT NULL | 도서 제목 |
+| `author` | VARCHAR(255) | NOT NULL | 작가 이름 |
+| `category` | VARCHAR(255) | ENUM | 도서 카테고리 |
+| `content` | MEDIUMTEXT | NOT NULL | 도서 내용 |
+| `cover_image_url` | MEDIUMTEXT | | 표지 이미지 URL (Base64 등) |
+| `likes` | INT | DEFAULT 0 | 좋아요 수 |
+| `views` | INT | DEFAULT 0 | 조회수 |
+| `created_at` | DATETIME | NOT NULL, UPDATABLE=FALSE | 등록일시 |
+| `updated_at` | DATETIME | | 수정일시 |
 
 ## 7.3 `Comment` 엔티티
 
